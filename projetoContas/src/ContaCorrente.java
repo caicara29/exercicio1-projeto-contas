@@ -10,6 +10,10 @@ public class ContaCorrente extends Conta{
         this.limite = limite;
     }
 
+    public String toString() {
+        return super.toString() + " | Limite: " + this.limite;
+    }
+
     public double getLimite() {
         return limite;
     }

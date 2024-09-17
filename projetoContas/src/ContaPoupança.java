@@ -1,5 +1,5 @@
 public class ContaPoupança extends Conta implements Rendimento{
-    private double taxa = 0.005;
+    private static double taxa = 0.005;
     
     public ContaPoupança(Cliente cliente) {
         super(cliente);
@@ -16,7 +16,7 @@ public class ContaPoupança extends Conta implements Rendimento{
     }
 
     public double getTaxa() {
-        return this.taxa;
+        return taxa;
     }
 
     public void setTaxa(double valor) {
@@ -24,10 +24,10 @@ public class ContaPoupança extends Conta implements Rendimento{
             System.err.println("A taxa não pode ser negativa");
             return;
         }
-        this.taxa = valor;
+        taxa = valor;
     }
 
     public void aplicar() {
-        this.saldo += saldo * this.taxa;
+        this.saldo += saldo * taxa;
     }
 }

@@ -1,6 +1,6 @@
 public class ContaInvestimento extends Conta implements Rendimento{
     private int quantidadeDepositos = 0;
-    private double taxa = 0.02;
+    private static double taxa = 0.02;
 
     public ContaInvestimento(Cliente cliente) {
         super(cliente);
@@ -22,7 +22,7 @@ public class ContaInvestimento extends Conta implements Rendimento{
     }
 
     public double getTaxa() {
-        return this.taxa;
+        return taxa;
     }
 
     public void setTaxa(double valor) {
@@ -30,11 +30,11 @@ public class ContaInvestimento extends Conta implements Rendimento{
             System.err.println("A taxa não pode ser negativa");
             return;
         }
-        this.taxa = valor;
+        taxa = valor;
     }
 
     public void aplicar() {
-        this.saldo += saldo * getTaxa();        
+        this.saldo += saldo * taxa;        
     }
 
 

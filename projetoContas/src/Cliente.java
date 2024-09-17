@@ -36,4 +36,14 @@ public abstract class Cliente {
     public String toString() {
         return "Cliente: " + this.nome + " | Data de Cadastro: " + this.dataCadastro;
     }
+
+    public boolean equals(Object obj) {
+        return obj != null
+            && (obj instanceof Cliente)
+            && ((Cliente) obj).id.equals(this.id);
+    }
+
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

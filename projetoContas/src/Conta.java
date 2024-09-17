@@ -27,6 +27,14 @@ public abstract class Conta {
         return cliente;
     }
 
+    public String toString() {
+        return cliente.toString() + " | Saldo: " + this.saldo;
+    }
+
     public abstract void sacar(double valor);
     public abstract void depositar(double valor);
+
+    public int hashCode() {
+        return id.hashCode();
+    }
 }
