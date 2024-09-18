@@ -1,9 +1,15 @@
+import java.time.LocalDate;
+
 public class PessoaFisica extends Cliente {
     private final String cpf;
 
-
     public PessoaFisica(String nome, String cpf) {
         super(nome);
+        this.cpf = cpf;
+    }
+
+    public PessoaFisica(String id, String nome, LocalDate dataCadastro, String cpf) {
+        super(id, nome, dataCadastro);
         this.cpf = cpf;
     }
 
@@ -11,12 +17,8 @@ public class PessoaFisica extends Cliente {
         return cpf;
     }
 
-    public String toString() {
-        return super.toString() + " | CPF: " + this.cpf;
-    }
-
-    public String csvString(){
-        return super.csvString() + ";" + this.cpf;
+    public String toString(){
+        return super.toString() + ";" + this.cpf;
     }
     
     public boolean equals(Object obj) {

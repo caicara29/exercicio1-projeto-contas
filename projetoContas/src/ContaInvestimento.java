@@ -6,12 +6,16 @@ public class ContaInvestimento extends Conta implements Rendimento{
         super(cliente);
     }
 
+    public ContaInvestimento(String id, double saldo, Cliente cliente) {
+        super(id, saldo, cliente);
+    }
+
     public int getQuantidadeDepositos() {
         return quantidadeDepositos;
     }
 
-    public String csvString(){
-        return super.csvString() + ";" + this.quantidadeDepositos;
+    public String toString(){
+        return super.toString() + ";" + this.quantidadeDepositos;
     }
 
     public void sacar(double valor) {

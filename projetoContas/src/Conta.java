@@ -15,6 +15,12 @@ public abstract class Conta {
         this.cliente = cliente;
     }
 
+    public Conta(String id, double saldo, Cliente cliente) {
+        this.id = id;
+        this.saldo = saldo;
+        this.cliente = cliente;
+    }
+
     public String getId() {
         return id;
     }
@@ -27,11 +33,7 @@ public abstract class Conta {
         return cliente;
     }
 
-    public String toString() {
-        return cliente.toString() + " | Saldo: " + this.saldo;
-    }
-
-    public String csvString(){
+    public String toString(){
         return this.id + ";" + this.saldo + ";" + this.cliente;
     }
 

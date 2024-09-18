@@ -10,12 +10,13 @@ public class ContaCorrente extends Conta{
         this.limite = limite;
     }
 
-    public String toString() {
-        return super.toString() + " | Limite: " + this.limite;
+    public ContaCorrente(String id, double saldo, Cliente cliente, double limite) {
+        super(id, saldo, cliente);
+        this.limite = limite;
     }
 
-    public String cvString(){
-        return super.csvString() + ";" + this.limite;
+    public String toString(){
+        return super.toString() + ";" + this.limite;
     }
 
     public double getLimite() {

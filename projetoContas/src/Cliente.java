@@ -1,20 +1,26 @@
-import java.util.Date;
 import java.util.UUID;
+import java.time.LocalDate;
 
 public abstract class Cliente {
 
     private String nome;
     private final String id;
-    private final Date dataCadastro;
+    private final LocalDate dataCadastro;
     
     public Cliente() {
         this.id = UUID.randomUUID().toString();
-        this.dataCadastro = new Date();
+        this.dataCadastro = LocalDate.now();
     }
 
     public Cliente(String nome) {
         this();
         this.nome = nome;
+    }
+
+    public Cliente(String id, String nome, LocalDate dataCadastro) {
+        this.id = id;
+        this.nome = nome;
+        this.dataCadastro = dataCadastro;
     }
 
     public String getId() {
@@ -25,7 +31,7 @@ public abstract class Cliente {
         return nome;
     }
 
-    public Date getDataCadastro() {
+    public LocalDate getDataCadastro() {
         return dataCadastro;
     }
 
@@ -33,11 +39,8 @@ public abstract class Cliente {
         this.nome = nome;
     }
 
-    public String toString() {
-        return "Cliente: " + this.nome + " | Data de Cadastro: " + this.dataCadastro;
-    }
 
-    public String csvString() {
+    public String toString() {
         return this.id + ";" + this.nome + ";" + this.dataCadastro;
     }
 

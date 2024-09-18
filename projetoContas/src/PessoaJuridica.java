@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class PessoaJuridica extends Cliente {
     private final String cnpj;
 
@@ -6,16 +8,17 @@ public class PessoaJuridica extends Cliente {
         this.cnpj = cnpj;
     }
 
+    public PessoaJuridica(String id, String nome, LocalDate dataCadastro, String cnpj) {
+        super(id, nome, dataCadastro);
+        this.cnpj = cnpj;
+    }
+
     public String getCnpj() {
         return cnpj;
     }
 
-    public String toString() {
-        return super.toString() + " | CNPJ: " + this.cnpj;
-    }
-
-    public String csvString(){
-        return super.csvString() + ";" + this.cnpj;
+    public String toString(){
+        return super.toString() + ";" + this.cnpj;
     }
 
     public boolean equals(Object obj) {

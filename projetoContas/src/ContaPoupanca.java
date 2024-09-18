@@ -1,8 +1,12 @@
-public class ContaPoupança extends Conta implements Rendimento{
+public class ContaPoupanca extends Conta implements Rendimento{
     private static double taxa = 0.005;
     
-    public ContaPoupança(Cliente cliente) {
+    public ContaPoupanca(Cliente cliente) {
         super(cliente);
+    }
+
+    public ContaPoupanca(String id, double saldo, Cliente cliente) {
+        super(id, saldo, cliente);
     }
 
     public void sacar(double valor) {
