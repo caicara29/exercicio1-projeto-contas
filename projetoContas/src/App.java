@@ -1,9 +1,10 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
     
     private static final Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //cadastrarcliente e ja acresenta na lista de clientes
         //cadastrarconta e ja acresenta na lista de contas
         //cadastrar usando cast de cliente e pessoa fisica ou juridica
@@ -26,12 +27,13 @@ public class App {
         banco.listarClientes();
         banco.listarContas();
 
-        banco.removerCliente(cliente2.getId());
+        //banco.removerCliente(cliente2.getId());
 
         banco.listarClientes();
         banco.listarContas();
         //apagar testes dps
 
+        banco.finalizar();
         scanner.close();
     }
 }

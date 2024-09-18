@@ -14,6 +14,10 @@ public class PessoaJuridica extends Cliente {
         return super.toString() + " | CNPJ: " + this.cnpj;
     }
 
+    public String csvString(){
+        return super.csvString() + ";" + this.cnpj;
+    }
+
     public boolean equals(Object obj) {
         return super.equals(obj) && (obj instanceof PessoaJuridica);
     }

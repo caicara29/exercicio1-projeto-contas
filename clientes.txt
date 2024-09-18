@@ -1,0 +1,2 @@
+Cliente: João | Data de Cadastro: Tue Sep 17 09:27:52 BRT 2024 | CPF: 123.456.789-00
+Cliente: Empresa | Data de Cadastro: Tue Sep 17 09:27:52 BRT 2024 | CNPJ: 12.345.678/0001-99

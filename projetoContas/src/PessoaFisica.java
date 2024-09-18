@@ -14,6 +14,10 @@ public class PessoaFisica extends Cliente {
     public String toString() {
         return super.toString() + " | CPF: " + this.cpf;
     }
+
+    public String csvString(){
+        return super.csvString() + ";" + this.cpf;
+    }
     
     public boolean equals(Object obj) {
         return super.equals(obj) && (obj instanceof PessoaFisica);

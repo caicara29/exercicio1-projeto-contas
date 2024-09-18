@@ -10,6 +10,10 @@ public class ContaInvestimento extends Conta implements Rendimento{
         return quantidadeDepositos;
     }
 
+    public String csvString(){
+        return super.csvString() + ";" + this.quantidadeDepositos;
+    }
+
     public void sacar(double valor) {
         if (valor > 0 && valor <= saldo && (quantidadeDepositos%3) == 0) {
             this.saldo -= valor;

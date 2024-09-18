@@ -37,6 +37,10 @@ public abstract class Cliente {
         return "Cliente: " + this.nome + " | Data de Cadastro: " + this.dataCadastro;
     }
 
+    public String csvString() {
+        return this.id + ";" + this.nome + ";" + this.dataCadastro;
+    }
+
     public boolean equals(Object obj) {
         return obj != null
             && (obj instanceof Cliente)

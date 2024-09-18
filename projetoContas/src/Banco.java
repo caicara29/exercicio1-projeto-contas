@@ -1,5 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Banco{
     //verificar duplicidade de cpf e cnpj (um cliente não pode ter duas contas do mesmo tipo)
@@ -10,11 +12,11 @@ public class Banco{
         return banco;
     }
 
-    private Map<String, Cliente> clientes = new HashMap<>();
-    private Map<String, PessoaFisica> clientesPF = new HashMap<>();
-    private Map<String, PessoaJuridica> clientesPJ = new HashMap<>();
+    private static Map<String, Cliente> clientes = new HashMap<>();
+    private static Map<String, PessoaFisica> clientesPF = new HashMap<>();
+    private static Map<String, PessoaJuridica> clientesPJ = new HashMap<>();
 
-    private Map<String, Conta> contas = new HashMap<>();
+    private static Map<String, Conta> contas = new HashMap<>();
 
     public void adicionarCliente(Cliente cliente) {
         clientes.put(cliente.getId(), cliente);
@@ -59,11 +61,6 @@ public class Banco{
         if (cliente instanceof PessoaFisica pf) clientesPF.remove(pf.getCpf());
         if (cliente instanceof PessoaJuridica pf) clientesPJ.remove(pf.getCnpj());
 
-        /*for (Conta conta : contas.values()) {
-            if (conta.getCliente().equals(cliente)) {
-                contas.remove(conta.getId());
-            }
-        } pq da errado??*/
         contas.values().removeIf(conta -> conta.getCliente().equals(cliente));
         clientes.remove(id);
     }
@@ -76,4 +73,28 @@ public class Banco{
         PessoaJuridica cliente = clientesPJ.get(cnpj);
         removerCliente(cliente.getId());
     }
+
+    public void removerConta(String id) {
+        contas.remove(id);
+    }
+
+    public void inicializar(){
+
+    }
+
+    public void finalizar() throws IOException{
+        String nome = "clientes";
+        FileWriter arquivo = new FileWriter(nome + ".txt");
+        for (Cliente c : clientes.values()) {
+            arquivo.write(c + "\n");
+        }
+        arquivo.close();
+        nome = "contas";
+        arquivo = new FileWriter(nome + ".txt");
+        for (Conta c : contas.values()) {
+            arquivo.write(c.csvString() + "\n");
+        }
+        arquivo.close();
+    }
+
 }

@@ -31,6 +31,10 @@ public abstract class Conta {
         return cliente.toString() + " | Saldo: " + this.saldo;
     }
 
+    public String csvString(){
+        return this.id + ";" + this.saldo + ";" + this.cliente;
+    }
+
     public abstract void sacar(double valor);
     public abstract void depositar(double valor);
 

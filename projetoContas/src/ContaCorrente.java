@@ -14,6 +14,10 @@ public class ContaCorrente extends Conta{
         return super.toString() + " | Limite: " + this.limite;
     }
 
+    public String cvString(){
+        return super.csvString() + ";" + this.limite;
+    }
+
     public double getLimite() {
         return limite;
     }
